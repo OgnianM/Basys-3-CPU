@@ -1,4 +1,4 @@
-<h1> A simple CPU for the Basys 3 board </h1>
+<h1> A simple 16-bit CPU for the Basys 3 board </h1>
 
 
 
@@ -7,8 +7,8 @@
 I've based the syntax on Intel x86 assembly, if an instruction has outputs, 
 they are stored in operand 1, unless otherwise specified.
 
-All integers in the source are interpreted as hexadecimal, hex integers starting with a letter must be prefixed by
-'0x' or they will be interpreted as labels.
+All integers in the source are interpreted as hexadecimal. <br> 
+Hex integers starting with a letter must be prefixed by '0x' or they'll be interpreted as labels.
 
 The assembler itself doesn't do a lot of syntax validation or error handling.
 
@@ -72,14 +72,15 @@ A special <code>program_end</code> label points to the first uninitialized word 
 <h2> CPU </h2>
 
 The CPU itself simply executes the instructions described above, there are no interrupts or out of order execution or
-anything fancy really. <br>
-All operations work on unsigned 16-bit integers. <br>
-Execution starts at address 0 and continues until it encounters a <code>hlt</code> instruction.
+anything fancy really.
 
-The memory size is currently set to 1024 words. <br>
-The stack pointer is initialized to point to the last word in memory. <br>
-All memory past <code>program_end</code> is not initialized. <br>
-All general purpose registers are initialized to zero. <br>
+
+* All operations work on unsigned 16-bit integers. <br>
+* Execution starts at address 0 and continues until it encounters a <code>hlt</code> instruction.
+* The memory size is currently set to 1024 words. <br>
+* The stack pointer is initialized to point to the last word in memory. <br>
+* All memory past <code>program_end</code> is not initialized. <br>
+* All general purpose registers are initialized to zero. <br>
 
 <h3> Execution times </h3>
 Instructions with only registers as operands execute in 3 cycles, parsing an immediate takes one additional cycle. <br>
