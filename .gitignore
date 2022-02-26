@@ -1,0 +1,6 @@
+cmake-build-debug
+.idea
+Basys3_CPU/Basys3_CPU.runs
+Basys3_CPU/Basys3_CPU.sim
+Basys3_CPU/Basys3_CPU.ip_user_files
+Basys3_CPU/Basys3_CPU.cache
